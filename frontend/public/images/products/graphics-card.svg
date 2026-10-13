@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="Graphics card (GPU)">
+  <defs>
+    <linearGradient id="gc-shroud" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2b2f36"/>
+      <stop offset="1" stop-color="#14181f"/>
+    </linearGradient>
+  </defs>
+  <rect x="120" y="180" width="560" height="220" rx="16" fill="url(#gc-shroud)"/>
+  <rect x="120" y="180" width="560" height="220" rx="16" fill="none" stroke="#b08d57" stroke-width="3"/>
+  <g>
+    <circle cx="290" cy="290" r="70" fill="#0b0f14"/>
+    <circle cx="290" cy="290" r="58" fill="#1f2937"/>
+    <g fill="#3f4652">
+      <path d="M290 240 a50 50 0 0 1 43 25 l-43 25 z"/>
+      <path d="M290 340 a50 50 0 0 1 -43 -25 l43 -25 z"/>
+      <path d="M245 315 a50 50 0 0 1 0 -50 l45 25 z"/>
+      <path d="M335 265 a50 50 0 0 1 0 50 l-45 -25 z"/>
+    </g>
+    <circle cx="290" cy="290" r="14" fill="#b08d57"/>
+  </g>
+  <g>
+    <circle cx="500" cy="290" r="70" fill="#0b0f14"/>
+    <circle cx="500" cy="290" r="58" fill="#1f2937"/>
+    <g fill="#3f4652">
+      <path d="M500 240 a50 50 0 0 1 43 25 l-43 25 z"/>
+      <path d="M500 340 a50 50 0 0 1 -43 -25 l43 -25 z"/>
+      <path d="M455 315 a50 50 0 0 1 0 -50 l45 25 z"/>
+      <path d="M545 265 a50 50 0 0 1 0 50 l-45 -25 z"/>
+    </g>
+    <circle cx="500" cy="290" r="14" fill="#b08d57"/>
+  </g>
+  <rect x="120" y="400" width="90" height="120" rx="6" fill="#9aa2ad"/>
+  <rect x="120" y="400" width="90" height="120" rx="6" fill="none" stroke="#6b7280" stroke-width="2"/>
+  <g fill="#d4af37">
+    <rect x="150" y="520" width="360" height="24" rx="3"/>
+  </g>
+  <g fill="#14181f" opacity="0.6">
+    <rect x="160" y="520" width="10" height="24"/>
+    <rect x="180" y="520" width="10" height="24"/>
+    <rect x="200" y="520" width="10" height="24"/>
+    <rect x="220" y="520" width="10" height="24"/>
+    <rect x="240" y="520" width="10" height="24"/>
+  </g>
+</svg>

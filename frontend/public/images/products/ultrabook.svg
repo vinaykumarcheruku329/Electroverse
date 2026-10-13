@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="Thin ultrabook laptop">
+  <defs>
+    <linearGradient id="ub-screen" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#60a5fa" stop-opacity="0.4"/>
+      <stop offset="1" stop-color="#c7d2fe" stop-opacity="0.4"/>
+    </linearGradient>
+    <linearGradient id="ub-body" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#e5e7eb"/>
+      <stop offset="1" stop-color="#cbd5e1"/>
+    </linearGradient>
+  </defs>
+  <rect x="170" y="110" width="460" height="300" rx="14" fill="#d1d5db"/>
+  <rect x="182" y="122" width="436" height="276" rx="8" fill="#f8fafc"/>
+  <rect x="192" y="132" width="416" height="256" rx="5" fill="url(#ub-screen)"/>
+  <path d="M120 452 h560 l40 34 H80 z" fill="url(#ub-body)" stroke="#b6bdc7" stroke-width="2"/>
+  <rect x="330" y="460" width="140" height="9" rx="4.5" fill="#aab2bd"/>
+  <circle cx="400" cy="448" r="4" fill="#9aa2ad"/>
+</svg>

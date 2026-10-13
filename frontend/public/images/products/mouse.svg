@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="Computer mouse">
+  <defs>
+    <linearGradient id="ms-body" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#2b2f36"/>
+      <stop offset="1" stop-color="#14181f"/>
+    </linearGradient>
+  </defs>
+  <path d="M400 130 C 500 130, 560 210, 560 320 C 560 430, 500 480, 400 480 C 300 480, 240 430, 240 320 C 240 210, 300 130, 400 130 Z" fill="url(#ms-body)"/>
+  <path d="M400 130 C 500 130, 560 210, 560 320 C 560 430, 500 480, 400 480 C 300 480, 240 430, 240 320 C 240 210, 300 130, 400 130 Z" fill="none" stroke="#0f172a" stroke-width="3"/>
+  <path d="M400 150 L400 300" stroke="#3f4652" stroke-width="4"/>
+  <path d="M300 250 C 340 200, 460 200, 500 250" fill="none" stroke="#3f4652" stroke-width="3"/>
+  <rect x="384" y="200" width="32" height="70" rx="16" fill="#b08d57"/>
+  <circle cx="400" cy="400" r="10" fill="#b08d57" opacity="0.8"/>
+</svg>
