@@ -1,21 +1,20 @@
-{
-  "nbformat": 4,
-  "nbformat_minor": 5,
-  "metadata": {
-    "language_info": {
-      "name": "java"
-    }
-  },
-  "cells": [
-    {
-      "id": "a63cf922-e667-4cb7-a0b9-088452095bcf",
-      "cell_type": "code",
-      "source": "\nFROM maven:3.9-eclipse-temurin-21 AS build\n\nWORKDIR /app\n\nCOPY pom.xml .\nCOPY src ./src\n\nRUN mvn -DskipTests clean package\n\nFROM eclipse-temurin:21-jre\n\nWORKDIR /app\n\nCOPY --from=build /app/target/*.jar app.jar\n\nEXPOSE 8080\n\nENTRYPOINT [\"java\", \"-jar\", \"app.jar\"]\n",
-      "metadata": {
-        "language": "java"
-      },
-      "execution_count": null,
-      "outputs": []
-    }
-  ]
-}
+```dockerfile
+FROM maven:3.9-eclipse-temurin-21 AS build
+
+WORKDIR /app
+
+COPY pom.xml .
+COPY src ./src
+
+RUN mvn -DskipTests clean package
+
+FROM eclipse-temurin:21-jre
+
+WORKDIR /app
+
+COPY --from=build /app/target/*.jar app.jar
+
+EXPOSE 10000
+
+ENTRYPOINT ["java", "-jar", "app.jar"]
+```
