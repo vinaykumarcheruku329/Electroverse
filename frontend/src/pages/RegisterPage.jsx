@@ -1,3 +1,4 @@
+
 import { useMemo, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
@@ -9,14 +10,22 @@ export default function RegisterPage() {
   const { toast } = useUi()
   const navigate = useNavigate()
 
-  const [form, setForm] = useState({ fullName: '', email: '', password: '', confirmPassword: '', phone: '' })
+  const [form, setForm] = useState({
+    fullName: '',
+    email: '',
+    password: '',
+    confirmPassword: ''
+  })
   const [showPassword, setShowPassword] = useState(false)
   const [showConfirm, setShowConfirm] = useState(false)
   const [errors, setErrors] = useState({})
   const [error, setError] = useState(null)
   const [busy, setBusy] = useState(false)
 
-  const strength = useMemo(() => passwordStrength(form.password), [form.password])
+  const strength = useMemo(
+    () => passwordStrength(form.password),
+    [form.password]
+  )
 
   function field(name) {
     return (e) => {
@@ -28,6 +37,7 @@ export default function RegisterPage() {
   async function handleSubmit(e) {
     e.preventDefault()
     setError(null)
+
     const validation = validateRegister(form)
     setErrors(validation)
     if (hasErrors(validation)) return
@@ -37,15 +47,17 @@ export default function RegisterPage() {
       const user = await register({
         fullName: form.fullName.trim(),
         email: form.email.trim(),
-        password: form.password,
-        phone: form.phone.trim() || undefined
+        password: form.password
       })
+
       toast.success(`Welcome to ElectroVerse, ${user.fullName}!`)
       navigate('/', { replace: true })
     } catch (err) {
       if (err.fieldErrors?.length) {
         const mapped = {}
-        err.fieldErrors.forEach((fe) => { mapped[fe.field] = fe.message })
+        err.fieldErrors.forEach((fe) => {
+          mapped[fe.field] = fe.message
+        })
         setErrors(mapped)
         setError(err.message)
       } else {
@@ -62,7 +74,9 @@ export default function RegisterPage() {
         <div className="auth-head">
           <span className="brand-mark">EV</span>
           <h1>Create your account</h1>
-          <p className="muted">Join ElectroVerse to shop, save and track.</p>
+          <p className="muted">
+            Join ElectroVerse to shop, save and track.
+          </p>
         </div>
 
         <form onSubmit={handleSubmit} noValidate>
@@ -78,7 +92,9 @@ export default function RegisterPage() {
               placeholder="Ananya Sharma"
               aria-invalid={Boolean(errors.fullName)}
             />
-            {errors.fullName ? <p className="form-error">{errors.fullName}</p> : null}
+            {errors.fullName ? (
+              <p className="form-error">{errors.fullName}</p>
+            ) : null}
           </div>
 
           <div className="form-group">
@@ -94,7 +110,9 @@ export default function RegisterPage() {
               placeholder="you@example.com"
               aria-invalid={Boolean(errors.email)}
             />
-            {errors.email ? <p className="form-error">{errors.email}</p> : null}
+            {errors.email ? (
+              <p className="form-error">{errors.email}</p>
+            ) : null}
           </div>
 
           <div className="form-group">
@@ -120,17 +138,30 @@ export default function RegisterPage() {
                 {showPassword ? 'Hide' : 'Show'}
               </button>
             </div>
+
             {form.password ? (
-              <div className="password-strength" data-score={strength.score}>
+              <div
+                className="password-strength"
+                data-score={strength.score}
+              >
                 <div className="password-strength-bar">
-                  <span style={{ width: `${(strength.score / 4) * 100}%` }} />
+                  <span
+                    style={{
+                      width: `${(strength.score / 4) * 100}%`
+                    }}
+                  />
                 </div>
                 <span className="form-hint">{strength.label}</span>
               </div>
             ) : (
-              <div className="form-hint">Use 8+ characters with a mix of letters, numbers and symbols.</div>
+              <div className="form-hint">
+                Use 8+ characters with a mix of letters, numbers and symbols.
+              </div>
             )}
-            {errors.password ? <p className="form-error">{errors.password}</p> : null}
+
+            {errors.password ? (
+              <p className="form-error">{errors.password}</p>
+            ) : null}
           </div>
 
           <div className="form-group">
@@ -156,28 +187,20 @@ export default function RegisterPage() {
                 {showConfirm ? 'Hide' : 'Show'}
               </button>
             </div>
-            {errors.confirmPassword ? <p className="form-error">{errors.confirmPassword}</p> : null}
+            {errors.confirmPassword ? (
+              <p className="form-error">{errors.confirmPassword}</p>
+            ) : null}
           </div>
 
-          <div className="form-group">
-            <label htmlFor="phone">Phone <span className="muted small">(optional)</span></label>
-            <input
-              id="phone"
-              className="form-control"
-              type="tel"
-              autoComplete="tel"
-              inputMode="tel"
-              value={form.phone}
-              onChange={field('phone')}
-              placeholder="98765 43210"
-              aria-invalid={Boolean(errors.phone)}
-            />
-            {errors.phone ? <p className="form-error">{errors.phone}</p> : null}
-          </div>
+          {error ? (
+            <p className="form-error auth-error">{error}</p>
+          ) : null}
 
-          {error ? <p className="form-error auth-error">{error}</p> : null}
-
-          <button type="submit" className="btn btn-primary btn-block btn-lg" disabled={busy}>
+          <button
+            type="submit"
+            className="btn btn-primary btn-block btn-lg"
+            disabled={busy}
+          >
             {busy ? 'Creating account…' : 'Create account'}
           </button>
         </form>
